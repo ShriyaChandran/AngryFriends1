@@ -89,9 +89,15 @@ function mouseReleased(){
 }
 
 function keyPressed(){
-    if(keyCode === 32){
-         slingshot.attach(player.body);
-    }
+    if(keyCode === 32&&player.body.speed<1){
+        player.trajectory=[];
+
+     Matter.Body.setPosition(player.body,{
+         x:200,
+         y:50
+     })
+        slingshot.attach(player.body);
+     }
 }
 
 async function getTime(){
